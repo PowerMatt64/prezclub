@@ -14,10 +14,19 @@ import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.util.security.Constraint;
 
 
-public class web {
+public class web implements Runnable{
 
 
 		public static void main(String[] args) {
+			new web();
+			new bot();
+		}
+		public web() {
+			new Thread(this).start();
+		}
+
+		@Override
+		public void run() {
 			Server s = new Server(8080);
 
 			LoginService loginService = new HashLoginService("matt",
@@ -59,6 +68,6 @@ public class web {
 
 				e.printStackTrace();
 			}
+			
 		}
-
 }
