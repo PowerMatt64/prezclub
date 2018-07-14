@@ -46,7 +46,7 @@ public class web {
 			resource_handler.setWelcomeFiles(new String[]{ "index.html" });
 			resource_handler.setResourceBase("./UI");
 			ServletHandler handler = new ServletHandler();
-			handler.addServletWithMapping(listPlayers.class, "/istPlayers");
+			handler.addServletWithMapping(listPlayers.class, "/listPlayers");
 
 			HandlerList handlers = new HandlerList();
 			handlers.setHandlers(new Handler[] { resource_handler,handler, new DefaultHandler() });
