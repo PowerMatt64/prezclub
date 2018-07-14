@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Userstore {
 	private final Map<String, String> store = new ConcurrentHashMap<>();
-	private final Map<String, String> discrim = new ConcurrentHashMap<>();
+	private final Map<String, String> info = new ConcurrentHashMap<>();
 	private static Userstore instance = new Userstore();
 	
 	public static Userstore getinstance() {
@@ -16,9 +16,10 @@ public class Userstore {
 	private Userstore() {
 		
 	}
-	public void adduser(String id, String name, String discrimid) {
+	public void adduser(String id, String name) {
+		
 		store.put(id, name);
-		discrim.put("discrim", discrimid);
+		
 	}
 	public Set<Entry<String, String>> listUsers(){
 		return store.entrySet();
