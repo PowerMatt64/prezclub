@@ -1,6 +1,6 @@
 a {
-    background-color: red;
-  box-shadow: 0 1px 0 darkred;
+    background-color: blue;
+  box-shadow: 0 1px 0 darkblue;
   color: white;
   padding: .5em 1em;
   text-decoration: none;
@@ -8,7 +8,7 @@ a {
 }
 
 a:hover {
-  background-color: #ce0606;
+  background-color: #0080ff;
   cursor: pointer;
 }
 
