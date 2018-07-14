@@ -30,12 +30,13 @@ public class bot implements Runnable{
 	            }
 	            if (event.getMessage().getContent().equalsIgnoreCase("!updatestore")) {
 	            	Optional<Server> server = api.getServerById(467517939554451456L);
+	            	int servercount = server.get().getMemberCount();
 	            	//Optional<ServerChannel> channel = server.get().getChannelById(467517939554451460L);
 	                //System.out.println(channel.get().get);
-	                
+	                System.out.println(servercount);
 	                for (User u: server.get().getMembers()) {
 	                	
-	                	Userstore.getinstance().adduser(u.getIdAsString(), u.getName());
+	                	Userstore.getinstance().adduser(u.getIdAsString(), u.getName(), u.getDiscriminator() );
 	                }
 	                
 	               

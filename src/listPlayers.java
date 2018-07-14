@@ -21,7 +21,7 @@ public class listPlayers extends HttpServlet{
          response.getWriter().println("<tr>");
     	 response.getWriter().println("<th>ID</th>");
     	 response.getWriter().println("<th>Name</th>");
-    	 //response.getWriter().println("<th>DiscordId</th>");
+    	 response.getWriter().println("<th>DiscrimId</th>");
     	 //response.getWriter().println("<th>Kick</th>");
     	 //response.getWriter().println("<th>Ban</th>");
     	 response.getWriter().println("</tr>");
@@ -33,6 +33,7 @@ public class listPlayers extends HttpServlet{
          for(Entry<String, String> u: sorted.entrySet()) {
         	 response.getWriter().println("<tr>");
         	 response.getWriter().println("<td>"+u.getValue()+"</td>");
+        	 response.getWriter().println("<td>"+u.getKey()+"</td>");
         	 response.getWriter().println("<td>"+u.getKey()+"</td>");
         	 
       
