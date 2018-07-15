@@ -22,7 +22,7 @@ public class listPlayers extends HttpServlet{
     	 response.getWriter().println("<th>Name</th>");
     	 response.getWriter().println("<th>Id</th>");
     	 //response.getWriter().println("<th>DiscrimId</th>");
-    	// response.getWriter().println("<th>Kick</th>");
+    	 response.getWriter().println("<th>Kick</th>");
     	 //response.getWriter().println("<th>Ban</th>");
     	 response.getWriter().println("</tr>");
     	 response.getWriter().println("<tbody>");
@@ -37,7 +37,7 @@ public class listPlayers extends HttpServlet{
         	// response.getWriter().println("<td>"+u.getKey()+"</td>");
         	 
       
-        	 //response.getWriter().println("<td>"+"<a href='/kickMember?userid="+u.getValue()+"'>Kick</a></td>");
+        	 response.getWriter().println("<td>"+"<a href='/kickMember?id="+u.getKey()+"'>Kick</a></td>");
         	 //response.getWriter().println("<td>"+"<a href='/exterminate?id="+b.getValue().get("bookId")+"'>Delete</a></td>");
         	 response.getWriter().println("</tr>");
         }

@@ -9,19 +9,22 @@ import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
 public class bot implements Runnable{
-
+	private static Server server;
 	public static void main(String[] args) {
         new bot();
     }
 	public bot() {
 		new Thread(this).start();
 	}
+	public static Server getServer() {
+		return server;
+	}
 	@Override
 	public void run() {
 		 String token = "NDYxNTg5NzEwNDg2MjQxMjkw.DivYaA.uiPIV9MNtUmJ6rSNu0Jh8sbG30g";
 
 	        DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
-	        Optional<Server> server = api.getServerById(467517939554451456L);
+	         server = api.getServerById(467517939554451456L).get();
 	        // Add a listener which answers with "Pong!" if someone writes "!ping"
 	        api.addMessageCreateListener(event -> {
 	            if (event.getMessage().getContent().equalsIgnoreCase("!ping")) {
@@ -31,11 +34,11 @@ public class bot implements Runnable{
 	            
 	            if (event.getMessage().getContent().equalsIgnoreCase("!update")) {
 	            	event.getChannel().sendMessage("Updated!");
-	            	int servercount = server.get().getMemberCount();
+	            	int servercount = server.getMemberCount();
 	            	//Optional<ServerChannel> channel = server.get().getChannelById(467517939554451460L);
 	                //System.out.println(channel.get().get);
 	                //System.out.println(servercount);
-	                for (User u: server.get().getMembers()) {
+	                for (User u: server.getMembers()) {
 	          
 	                	Userstore.getinstance().adduser(u.getId(), u.getName() );
 	                }
@@ -43,7 +46,7 @@ public class bot implements Runnable{
 	               
 	            }
 	            if (event.getMessage().getContent().equalsIgnoreCase("!count")) {
-	                event.getChannel().sendMessage("There are "+Integer.toString(server.get().getMemberCount())+" people on this server!");
+	                event.getChannel().sendMessage("There are "+Integer.toString(server.getMemberCount())+" people on this server!");
 	                
 	                System.out.println(api.getStatus());
 	            }

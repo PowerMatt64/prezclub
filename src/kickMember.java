@@ -15,14 +15,14 @@ public class kickMember extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 		try {
-		String user = (request.getParameter("user"));
+		String id = (request.getParameter("id"));
 		
 		//Map<Long, String> user = (Map<Long, String>) Userstore.getinstance().listUsers();
 		
-		System.out.print(user);
-		DiscordApi api = (DiscordApi) new DiscordApiBuilder().setToken("NDYxNTg5NzEwNDg2MjQxMjkw.DivYaA.uiPIV9MNtUmJ6rSNu0Jh8sbG30g");
-        Optional<Server> server = api.getServerById(467517939554451456L);
-		server.get().kickUser(user);
+		//System.out.print(user);
+		
+		System.out.println(bot.getServer().getMemberById(id).toString());
+		//bot.getServer().kickUser(bot.getServer().getMemberById(id));
 		response.sendRedirect("/listPlayers");
 		}
 		catch(Exception e){
