@@ -1,5 +1,7 @@
 import java.util.Collections;
 
+import javax.servlet.Servlet;
+
 import org.eclipse.jetty.security.ConstraintMapping;
 import org.eclipse.jetty.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.security.HashLoginService;
@@ -56,6 +58,7 @@ public class web implements Runnable{
 			resource_handler.setResourceBase("./UI");
 			ServletHandler handler = new ServletHandler();
 			handler.addServletWithMapping(listPlayers.class, "/listPlayers");
+			handler.addServletWithMapping(kickMember.class, "/kickMember");
 
 			HandlerList handlers = new HandlerList();
 			handlers.setHandlers(new Handler[] { resource_handler,handler, new DefaultHandler() });
