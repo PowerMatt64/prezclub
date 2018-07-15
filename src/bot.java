@@ -37,7 +37,7 @@ public class bot implements Runnable{
 	                //System.out.println(servercount);
 	                for (User u: server.get().getMembers()) {
 	          
-	                	Userstore.getinstance().adduser(u.getIdAsString(), u.getName() );
+	                	Userstore.getinstance().adduser(u.getId(), u.getName() );
 	                }
 	                
 	               

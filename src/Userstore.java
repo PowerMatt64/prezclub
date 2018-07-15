@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Userstore {
-	private final Map<String, String> store = new ConcurrentHashMap<>();
+	private final Map<Long, String> store = new ConcurrentHashMap<>();
 	private final Map<String, String> info = new ConcurrentHashMap<>();
 	private static Userstore instance = new Userstore();
 	
@@ -16,12 +16,12 @@ public class Userstore {
 	private Userstore() {
 		
 	}
-	public void adduser(String id, String name) {
+	public void adduser(Long id, String name) {
 		
 		store.put(id, name);
 		
 	}
-	public Set<Entry<String, String>> listUsers(){
+	public Set<Entry<Long, String>> listUsers(){
 		return store.entrySet();
 	}
 }
