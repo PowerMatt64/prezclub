@@ -23,6 +23,7 @@ public class kickMember extends HttpServlet {
 		
 		System.out.println(bot.getServer().getMemberById(id).toString());
 		//bot.getServer().kickUser(bot.getServer().getMemberById(id));
+		
 		response.sendRedirect("/listPlayers");
 		}
 		catch(Exception e){
