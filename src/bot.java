@@ -21,7 +21,7 @@ public class bot implements Runnable{
 	}
 	@Override
 	public void run() {
-		 String token = "NDYxNTg5NzEwNDg2MjQxMjkw.DivYaA.uiPIV9MNtUmJ6rSNu0Jh8sbG30g";
+		 String token = "";
 
 	        DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 	         server = api.getServerById(467517939554451456L).get();
